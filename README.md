@@ -1,4 +1,4 @@
-# KMKeys
+# KMKeys-iOS
 
 [![CI Status](http://img.shields.io/travis/Kevin McGill/KMKeys.svg?style=flat)](https://travis-ci.org/Kevin McGill/KMKeys)
 [![Version](https://img.shields.io/cocoapods/v/KMKeys.svg?style=flat)](http://cocoapods.org/pods/KMKeys)
