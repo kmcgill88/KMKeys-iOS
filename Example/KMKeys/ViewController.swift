@@ -7,18 +7,28 @@
 //
 
 import UIKit
+import KMKeys
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBAction func pressed(_ sender: UIButton) {
+        
+        let keys = KMKeys()
+        keys.textField.textAlignment = .center
+        keys.textField.backgroundColor = .brown
+        keys.textField.textColor = .white
+        keys.textField.keyboardType = .decimalPad
+        keys.textField.keyboardAppearance = .dark
+        
+        keys.toolbar.tintColor = .brown
+        keys.doneBarButton.tintColor = .white
+        keys.cancelBarButton.tintColor = .white
 
+        keys.setToolbarItems(items: [])
+        
+        keys.show() { (text:String?) in
+            print(text ?? "No text here!!")
+        }
+    }
 }
-
