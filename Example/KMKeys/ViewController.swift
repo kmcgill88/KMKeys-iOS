@@ -14,8 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
     @IBAction func pressed(_ sender: UIButton) {
+        let keys = KMKeys()
+        keys.show(completionHandler: { (text:String?) in
+            self.label.text = text
+        })
+    }
+    
+    @IBAction func pressedCusomtized(_ sender: Any) {
         
         let keys = KMKeys()
+        
+        // Customize the text field
+        //
         keys.textField.textAlignment = .center
         keys.textField.placeholder = "Placeholder Text Here"
         keys.textField.backgroundColor = .brown
@@ -24,6 +34,8 @@ class ViewController: UIViewController {
         keys.textField.keyboardType = .decimalPad
         keys.textField.keyboardAppearance = .dark
         
+        // Cusomize the toolbar
+        //
         keys.toolbar.barTintColor = .brown
         
         // KMKeyBarButtonItemType.flexibleSpace, .cancel, .done
@@ -32,7 +44,7 @@ class ViewController: UIViewController {
         let flexibleSpace = KMKeyBarButtonItem(title: nil, style: UIBarButtonItemStyle.plain, action: KMKeyBarButtonItemType.flexibleSpace, kmKeys: keys)
         let cancelBarButton = KMKeyBarButtonItem(title: "Never Mind", style: .plain, action: .cancel, kmKeys: keys)
         let doneBarButton = KMKeyBarButtonItem(title: "Fire!!!", style: .done, action: .done, kmKeys: keys)
-
+        
         // KMKeyBarButtonItemType.textInput
         // When you want a toolbar button's title to append to the textField
         //
@@ -48,10 +60,10 @@ class ViewController: UIViewController {
                 keys.textField.text = "KMKeys!!!!"
             }
         })
-
+        
         keys.setToolbarItems(items: [cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, actionBarButton, flexibleSpace, doneBarButton])
         keys.setToolbarItemsTintColor(color: .white)
-
+        
         keys.show() { (text:String?) in
             self.label.text = text
         }

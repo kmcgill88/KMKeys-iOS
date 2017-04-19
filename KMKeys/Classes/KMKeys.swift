@@ -122,13 +122,9 @@ open class KMKeys: UIView {
     }
 }
 
-
-
 public enum KMKeyBarButtonItemType {
     case action, cancel, done, flexibleSpace, textInput
 }
-
-
 
 public class KMKeyBarButtonItem: UIBarButtonItem {
     
@@ -143,7 +139,6 @@ public class KMKeyBarButtonItem: UIBarButtonItem {
         } else {
             self.init(title: title, style: style, target: nil, action: nil)
         }
-        
         
         self.kmKeys = kmKeys
         self.target = kmKeys
@@ -164,7 +159,6 @@ public class KMKeyBarButtonItem: UIBarButtonItem {
             break
         }
     }
-
     
     @objc private func barButtonItemTextInput(barButtonItem: KMKeyBarButtonItem) {
         if let textFieldText = kmKeys?.textField.text, let barButtonItemTitle = barButtonItem.title {
