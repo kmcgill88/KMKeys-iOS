@@ -15,9 +15,11 @@ open class KMKeys: UIView {
         didSet {
             textField.frame = CGRect.init(x: 0, y: 0, width: defaultFrame.size.width, height: textFieldHeight)
             toolbar.frame = CGRect.init(x: 0, y: textFieldHeight, width: defaultFrame.size.width, height: toolbarHeight)
+            tapView.frame = CGRect.init(x: 0, y: 0, width: appWindow.bounds.size.width, height: appWindow.bounds.size.height)
         }
     }
     
+    private let tapView:UIView = UIView()
     private let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(KMKeys.done))
     private let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
     private let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -70,7 +72,9 @@ open class KMKeys: UIView {
         if textField.isFirstResponder {
             textField.resignFirstResponder()
             self.removeFromSuperview()
+            tapView.removeFromSuperview()
         } else {
+            appWindow.addSubview(tapView)
             appWindow.addSubview(self)
             textField.becomeFirstResponder()
         }
@@ -88,7 +92,7 @@ open class KMKeys: UIView {
     
     private func setup() {
         self.toolbar.items = [cancelBarButton, flexibleSpace, doneBarButton]
-
+        self.tapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancel)))
         
         self.frame = defaultFrame
         self.addSubview(textField)
