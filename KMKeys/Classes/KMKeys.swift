@@ -89,6 +89,7 @@ open class KMKeys: UIView {
     private func setup() {
         self.toolbar.items = [cancelBarButton, flexibleSpace, doneBarButton]
 
+        
         self.frame = defaultFrame
         self.addSubview(textField)
         self.addSubview(toolbar)
@@ -120,7 +121,7 @@ open class KMKeys: UIView {
 
 
 public enum KMKeyBarButtonItemType {
-    case cancel, customTextInput, done, flexibleSpace
+    case action, cancel, done, flexibleSpace, textInput
 }
 
 
@@ -128,16 +129,17 @@ public enum KMKeyBarButtonItemType {
 public class KMKeyBarButtonItem: UIBarButtonItem {
     
     public typealias ActionHandler = (_ kmKeys:KMKeys?) -> Void
-    //    private var actionHandler: (_ kmKeys:KMKeys?) -> Void = { (_ kmKeys:KMKeys?) in }
+    private var actionHandler: ActionHandler?
 
     private var kmKeys:KMKeys?
     
-    public convenience init(title: String?, style: UIBarButtonItemStyle = .plain, action: KMKeyBarButtonItemType, kmKeys: KMKeys) {
+    public convenience init(title: String?, style: UIBarButtonItemStyle, action: KMKeyBarButtonItemType, kmKeys: KMKeys, actionHandler:ActionHandler? = nil) {
         if action == .flexibleSpace {
             self.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         } else {
             self.init(title: title, style: style, target: nil, action: nil)
         }
+        
         
         self.kmKeys = kmKeys
         self.target = kmKeys
@@ -147,17 +149,26 @@ public class KMKeyBarButtonItem: UIBarButtonItem {
             self.action = #selector(kmKeys.done)
         case .cancel:
             self.action = #selector(kmKeys.cancel)
-        case .customTextInput:
+        case .textInput:
             self.target = self
-            self.action = #selector(KMKeyBarButtonItem.customBarButtonItemTextInput(barButtonItem:))
+            self.action = #selector(KMKeyBarButtonItem.barButtonItemTextInput(barButtonItem:))
+        case .action:
+            self.actionHandler = actionHandler
+            self.target = self
+            self.action = #selector(KMKeyBarButtonItem.barButtonItemAction(barButtonItem:))
         default:
             break
         }
     }
+
     
-    @objc private func customBarButtonItemTextInput(barButtonItem: KMKeyBarButtonItem) {
+    @objc private func barButtonItemTextInput(barButtonItem: KMKeyBarButtonItem) {
         if let textFieldText = kmKeys?.textField.text, let barButtonItemTitle = barButtonItem.title {
             kmKeys?.textField.text = textFieldText + barButtonItemTitle
         }
+    }
+    
+    @objc private func barButtonItemAction(barButtonItem: KMKeyBarButtonItem) {
+        actionHandler?(self.kmKeys)
     }
 }

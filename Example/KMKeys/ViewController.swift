@@ -25,45 +25,34 @@ class ViewController: UIViewController {
         
         keys.toolbar.barTintColor = .brown
         
-        
-        let flexibleSpace = KMKeyBarButtonItem(title: nil,
-                                               style: UIBarButtonItemStyle.plain,
-                                               action: KMKeyBarButtonItemType.flexibleSpace,
-                                               kmKeys: keys)
-        
-        let cancelBarButton = KMKeyBarButtonItem(title: "Cancel",
-                                                 style: UIBarButtonItemStyle.plain,
-                                                 action: KMKeyBarButtonItemType.cancel,
-                                                 kmKeys: keys)
-        
-        let plusButton = KMKeyBarButtonItem(title: "+",
-                                            style: UIBarButtonItemStyle.plain,
-                                            action: KMKeyBarButtonItemType.customTextInput,
-                                            kmKeys: keys)
-        let minusButton = KMKeyBarButtonItem(title: "-",
-                                             style: UIBarButtonItemStyle.plain,
-                                             action: KMKeyBarButtonItemType.customTextInput,
-                                             kmKeys: keys)
-        
-        let commaButton = KMKeyBarButtonItem(title: ",",
-                                             style: UIBarButtonItemStyle.plain,
-                                             action: KMKeyBarButtonItemType.customTextInput,
-                                             kmKeys: keys)
-        
-        let doneBarButton = KMKeyBarButtonItem(title: "Done",
-                                               style: UIBarButtonItemStyle.done,
-                                               action: KMKeyBarButtonItemType.done,
-                                               kmKeys: keys)
+        // KMKeyBarButtonItemType.flexibleSpace, .cancel, .done
+        // Mostly normal buttons, except can set custom titles
+        //
+        let flexibleSpace = KMKeyBarButtonItem(title: nil, style: UIBarButtonItemStyle.plain, action: KMKeyBarButtonItemType.flexibleSpace, kmKeys: keys)
+        let cancelBarButton = KMKeyBarButtonItem(title: "Never Mind", style: .plain, action: .cancel, kmKeys: keys)
+        let doneBarButton = KMKeyBarButtonItem(title: "Fire!!!", style: .done, action: .done, kmKeys: keys)
 
-        keys.setToolbarItems(items: [cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, flexibleSpace, doneBarButton])
+        // KMKeyBarButtonItemType.textInput
+        // When you want a toolbar button's title to append to the textField
+        //
+        let plusButton = KMKeyBarButtonItem(title: "+", style: UIBarButtonItemStyle.plain, action: KMKeyBarButtonItemType.textInput, kmKeys: keys)
+        let minusButton = KMKeyBarButtonItem(title: "-", style: .plain, action: .textInput, kmKeys: keys)
+        let commaButton = KMKeyBarButtonItem(title: ",", style: .plain, action: .textInput, kmKeys: keys)
+        
+        // KMKeyBarButtonItemType.action
+        // When you want a button to do
+        let actionBarButton = KMKeyBarButtonItem(title: "Custom Action", style: .plain, action: KMKeyBarButtonItemType.action, kmKeys: keys, actionHandler: { (_ kmKeys:KMKeys?) in
+            print("customAction")
+            if let keys = kmKeys {
+                keys.textField.text = "KMKeys!!!!"
+            }
+        })
+
+        keys.setToolbarItems(items: [cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, actionBarButton, flexibleSpace, doneBarButton])
         keys.setToolbarItemsTintColor(color: .white)
 
         keys.show() { (text:String?) in
             print(text ?? "No text here!!")
         }
-        
-//        keys.show(completionHandler: { (text:String?) in
-//            
-//        })
     }
 }
