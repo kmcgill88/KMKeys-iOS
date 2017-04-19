@@ -16,16 +16,22 @@ class ViewController: UIViewController {
         
         let keys = KMKeys()
         keys.textField.textAlignment = .center
+        keys.textField.placeholder = "Placeholder Text Here"
         keys.textField.backgroundColor = .brown
         keys.textField.textColor = .white
+        keys.textField.tintColor = .white
         keys.textField.keyboardType = .decimalPad
         keys.textField.keyboardAppearance = .dark
         
-        keys.toolbar.tintColor = .brown
-        keys.doneBarButton.tintColor = .white
-        keys.cancelBarButton.tintColor = .white
+        keys.toolbar.barTintColor = .brown
+        
+        let doneBarButton = KMKeyBarButtonItem(title: "done", style: UIBarButtonItemStyle.done, action: KMKeyBarButtonItemAction.done, kmKeys: keys)
+        let cancelBarButton = KMKeyBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
+        let flexibleSpace = KMKeyBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//        keys.doneBarButton.tintColor = .white
+//        keys.cancelBarButton.tintColor = .white
 
-        keys.setToolbarItems(items: [])
+        
         
         keys.show() { (text:String?) in
             print(text ?? "No text here!!")
