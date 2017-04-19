@@ -29,15 +29,27 @@
                                     <action selector="pressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="f3s-Me-rRI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5U7-jU-1cq">
+                                <rect key="frame" x="16" y="120" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R0K-y0-kmQ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="AmE-zs-0AP"/>
+                            <constraint firstItem="5U7-jU-1cq" firstAttribute="leading" secondItem="R0K-y0-kmQ" secondAttribute="leading" id="Dcp-fD-7xD"/>
                             <constraint firstItem="R0K-y0-kmQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QgX-qA-1ap"/>
+                            <constraint firstItem="5U7-jU-1cq" firstAttribute="trailing" secondItem="R0K-y0-kmQ" secondAttribute="trailing" id="RcK-3j-0OC"/>
+                            <constraint firstItem="5U7-jU-1cq" firstAttribute="top" secondItem="R0K-y0-kmQ" secondAttribute="bottom" constant="70" id="djS-qE-L2n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R0K-y0-kmQ" secondAttribute="trailing" id="tLq-g6-kKT"/>
                             <constraint firstItem="R0K-y0-kmQ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="tnp-1B-IjC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="5U7-jU-1cq" id="OBI-s0-z1x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

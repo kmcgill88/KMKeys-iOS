@@ -11,6 +11,7 @@ import KMKeys
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
 
     @IBAction func pressed(_ sender: UIButton) {
         
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
         keys.setToolbarItemsTintColor(color: .white)
 
         keys.show() { (text:String?) in
-            print(text ?? "No text here!!")
+            self.label.text = text
         }
     }
 }
