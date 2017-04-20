@@ -14,8 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
     @IBAction func pressed(_ sender: UIButton) {
-        let keys = KMKeys()
-        keys.show(completionHandler: { (text:String?) in
+        // Short hand, default settings
+        //
+        KMKeys.show(completionHandler: { (text:String?) in
             self.label.text = text
         })
     }
@@ -23,6 +24,10 @@ class ViewController: UIViewController {
     @IBAction func pressedCusomtized(_ sender: Any) {
         
         let keys = KMKeys()
+        
+        // Change Default speed (0.15)
+        //
+        keys.animationSpeed = 0.05
         
         // Customize the text field
         //
@@ -55,7 +60,9 @@ class ViewController: UIViewController {
         // KMKeyBarButtonItemType.action
         // When you want a button to do
         let actionBarButton = KMKeyBarButtonItem(title: "Custom Action", style: .plain, action: KMKeyBarButtonItemType.action, kmKeys: keys, actionHandler: { (_ kmKeys:KMKeys?) in
-            print("customAction")
+            
+            // Do your custom logic here, in the actionHandler.
+            //
             if let keys = kmKeys {
                 keys.textField.text = "KMKeys!!!!"
             }

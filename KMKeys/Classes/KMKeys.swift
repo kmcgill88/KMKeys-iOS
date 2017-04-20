@@ -11,6 +11,7 @@ open class KMKeys: UIView {
     
     open let textField:UITextField = UITextField()
     open let toolbar:UIToolbar = UIToolbar()
+    open var animationSpeed = 0.15
     open override var frame: CGRect {
         didSet {
             textField.frame = CGRect.init(x: 0, y: 0, width: defaultFrame.size.width, height: textFieldHeight)
@@ -24,7 +25,6 @@ open class KMKeys: UIView {
     private let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
     private let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
-    private let ANIMATION_SPEED = 0.15
     
     private var textFieldHeight:CGFloat = 30.0
     private var toolbarHeight:CGFloat  = 44.0
@@ -62,6 +62,10 @@ open class KMKeys: UIView {
     
     public func cancel() {
         toggle()
+    }
+    
+    public class func show(completionHandler:@escaping (_ text:String?) -> Void) {
+        KMKeys().show(completionHandler: completionHandler)
     }
     
     public func show(completionHandler:@escaping (_ text:String?) -> Void) {
@@ -105,7 +109,7 @@ open class KMKeys: UIView {
     }
     
     private func moveViewWithKeyboard(height: CGFloat) {
-        UIView.animate(withDuration: ANIMATION_SPEED, animations: {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.frame = self.defaultFrame.offsetBy(dx: 0, dy: height - self.frame.height)
         })
     }

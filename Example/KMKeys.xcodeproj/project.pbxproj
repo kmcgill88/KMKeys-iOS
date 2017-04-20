@@ -13,7 +13,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* KMKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* KMKeysTest.swift */; };
 		704F44D7ED0182BF8EFE13AF /* Pods_KMKeys_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D711FEA2E19E815318E6F287 /* Pods_KMKeys_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		0DC472E1EF6C25BE1DB328ED /* Pods_KMKeys_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMKeys_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1621C722204494C3DF281F5B /* Pods-KMKeys_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMKeys_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMKeys_Example/Pods-KMKeys_Example.release.xcconfig"; sourceTree = "<group>"; };
-		54E66D6D51DE4343DEC6BB04 /* KMKeys.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = KMKeys.podspec; path = ../KMKeys.podspec; sourceTree = "<group>"; };
+		54E66D6D51DE4343DEC6BB04 /* KMKeys.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KMKeys.podspec; path = ../KMKeys.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* KMKeys_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMKeys_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,13 +40,13 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* KMKeys_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMKeys_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* KMKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMKeysTest.swift; sourceTree = "<group>"; };
 		95703307B1EE025A564A0D42 /* Pods-KMKeys_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMKeys_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMKeys_Example/Pods-KMKeys_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A7FB140896E657CB55A75236 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A7FB140896E657CB55A75236 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BC1342C530F3C309CDAF0A63 /* Pods-KMKeys_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMKeys_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KMKeys_Tests/Pods-KMKeys_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C25E2D1D6994984BADA309E1 /* Pods-KMKeys_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMKeys_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KMKeys_Tests/Pods-KMKeys_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D711FEA2E19E815318E6F287 /* Pods_KMKeys_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMKeys_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E98C510A7364148A0DCA64B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E98C510A7364148A0DCA64B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +126,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* KMKeysTest.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -370,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* KMKeysTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
