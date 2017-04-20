@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         keys.textField.keyboardType = .decimalPad
         keys.textField.keyboardAppearance = .dark
         
-        // Cusomize the toolbar
+        // Customize the toolbar
         //
         keys.toolbar.barTintColor = .brown
         
