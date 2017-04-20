@@ -61,7 +61,8 @@ class ViewController: UIViewController {
             }
         })
         
-        keys.setToolbarItems(items: [cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, actionBarButton, flexibleSpace, doneBarButton])
+        let fixedSpace = KMKeyBarButtonItem.fixedSpace()
+        keys.setToolbarItems(items: [fixedSpace, cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, actionBarButton, flexibleSpace, doneBarButton, fixedSpace])
         keys.setToolbarItemsTintColor(color: .white)
         
         keys.show() { (text:String?) in

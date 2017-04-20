@@ -23,7 +23,8 @@ open class KMKeys: UIView {
     private let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(KMKeys.done))
     private let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
     private let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    private let ANIMATION_SPEED = 0.25
+
+    private let ANIMATION_SPEED = 0.15
     
     private var textFieldHeight:CGFloat = 30.0
     private var toolbarHeight:CGFloat  = 44.0
@@ -91,7 +92,8 @@ open class KMKeys: UIView {
     }
     
     private func setup() {
-        self.toolbar.items = [cancelBarButton, flexibleSpace, doneBarButton]
+        let fixedSpace = KMKeyBarButtonItem.fixedSpace()
+        self.toolbar.items = [fixedSpace, cancelBarButton, flexibleSpace, doneBarButton, fixedSpace]
         self.tapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancel)))
         
         self.frame = defaultFrame
@@ -158,6 +160,19 @@ public class KMKeyBarButtonItem: UIBarButtonItem {
         default:
             break
         }
+    }
+    
+    public class func fixedSpace() -> KMKeyBarButtonItem {
+        let fixedSpaceBarButtonItem = KMKeyBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        
+        var fixedSize:CGFloat = 5.0
+        if let goodWindow = UIApplication.shared.keyWindow {
+            fixedSize = goodWindow.bounds.size.width * 0.02
+        }
+        
+        fixedSpaceBarButtonItem.width = fixedSize
+        
+        return fixedSpaceBarButtonItem
     }
     
     @objc private func barButtonItemTextInput(barButtonItem: KMKeyBarButtonItem) {
