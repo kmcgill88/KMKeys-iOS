@@ -10,12 +10,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Short Syntax
 ```swift
-KMKeys.show(completionHandler: { (text:String?) in
+KMKeys.show() { (text:String?) in
     self.label.text = text
-})
+}
 ```
 
-### Custom
+### Customized
 ```swift
 let keys = KMKeys()
 

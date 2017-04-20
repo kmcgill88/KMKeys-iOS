@@ -14,11 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
     @IBAction func pressed(_ sender: UIButton) {
+        
         // Short hand, default settings
         //
-        KMKeys.show(completionHandler: { (text:String?) in
+        KMKeys.show() { (text:String?) in
             self.label.text = text
-        })
+        }
+
     }
     
     @IBAction func pressedCusomtized(_ sender: Any) {
