@@ -5,6 +5,7 @@
 //  Created by McGills on 4/17/17.
 //  Copyright © 2017 McGill DevTech, LLC. All rights reserved.
 //
+
 import UIKit
 
 open class KMKeys: UIView {
@@ -25,7 +26,6 @@ open class KMKeys: UIView {
     private let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
     private let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
-    
     private var textFieldHeight:CGFloat = 30.0
     private var toolbarHeight:CGFloat  = 44.0
     private var completionHandler:(_ text:String?) -> Void = {_ in }
@@ -170,6 +170,10 @@ public class KMKeyBarButtonItem: UIBarButtonItem {
         default:
             break
         }
+    }
+
+    public class func flexibleSpace() -> KMKeyBarButtonItem {
+        return self.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
     
     public class func fixedSpace() -> KMKeyBarButtonItem {

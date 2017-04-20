@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         // KMKeyBarButtonItemType.flexibleSpace, .cancel, .done
         // Mostly normal buttons, except can set custom titles
         //
-        let flexibleSpace = KMKeyBarButtonItem(title: nil, style: UIBarButtonItemStyle.plain, action: KMKeyBarButtonItemType.flexibleSpace, kmKeys: keys)
+        let flexibleSpace = KMKeyBarButtonItem.flexibleSpace() //<-- Shortcut helper
         let cancelBarButton = KMKeyBarButtonItem(title: "Never Mind", style: .plain, action: .cancel, kmKeys: keys)
         let doneBarButton = KMKeyBarButtonItem(title: "Fire!!!", style: .done, action: .done, kmKeys: keys)
         
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             }
         })
         
-        let fixedSpace = KMKeyBarButtonItem.fixedSpace()
+        let fixedSpace = KMKeyBarButtonItem.fixedSpace() //<-- Shortcut helper, by default size is 2% of window width or 5 if window is nil
         keys.setToolbarItems(items: [fixedSpace, cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, actionBarButton, flexibleSpace, doneBarButton, fixedSpace])
         keys.setToolbarItemsTintColor(color: .white)
         
