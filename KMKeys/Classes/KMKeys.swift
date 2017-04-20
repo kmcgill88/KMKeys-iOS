@@ -105,22 +105,28 @@ open class KMKeys: UIView {
         self.addSubview(toolbar)
 
         NotificationCenter.default.addObserver(self, selector: #selector(KMKeys.keyboardDidChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(KMKeys.keyBoardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(KMKeys.keyBoardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    private func moveViewWithKeyboard(height: CGFloat) {
-        UIView.animate(withDuration: animationSpeed, animations: {
-            self.frame = self.defaultFrame.offsetBy(dx: 0, dy: height - self.frame.height)
-        })
+    @objc private func keyboardDidChangeFrame(notification: NSNotification) {
+        let frame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        self.frame = self.defaultFrame.offsetBy(dx: 0, dy: -frame.height - self.frame.height)
     }
     
-    @objc private func keyboardDidChangeFrame(notification: NSNotification) {
+    @objc private func keyBoardWillShow(notification: NSNotification) {
         let frame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         moveViewWithKeyboard(height: -frame.height)
     }
 
     @objc private func keyBoardWillHide(notification: NSNotification) {
         moveViewWithKeyboard(height: 0)
+    }
+    
+    private func moveViewWithKeyboard(height: CGFloat) {
+        UIView.animate(withDuration: animationSpeed, animations: {
+            self.frame = self.defaultFrame.offsetBy(dx: 0, dy: height - self.frame.height)
+        })
     }
     
     deinit {
