@@ -12,11 +12,11 @@ Pod::Spec.new do |s|
 KMKeys provides a drop-in floating text field and toolbar. A default configuration is provided with the ability to customize to your hearts content.
                        DESC
 
-  s.homepage         = 'https://github.com/kmcgill88/KMKeys'
+  s.homepage         = 'https://github.com/kmcgill88/KMKeys-iOS'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kevin McGill' => 'kevin@mcgilldevtech.com' }
-  s.source           = { :git => 'https://github.com/kmcgill88/KMKeys.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/kmcgill88/KMKeys-iOS.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'KMKeys/Classes/**/*'
