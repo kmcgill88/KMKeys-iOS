@@ -6,6 +6,8 @@
 
 ## Example
 
+![](http://mcgilldevtech.com/img/github/kmkeys/demo.gif)
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ### Short Syntax
