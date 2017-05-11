@@ -1,12 +1,12 @@
 PODS:
   - KMKeys (0.1.0)
-  - Nimble (6.1.0)
+  - Nimble (7.0.0)
   - Quick (1.1.0)
 
 DEPENDENCIES:
   - KMKeys (from `../`)
-  - Nimble (~> 6.x)
-  - Quick (~> 1.x)
+  - Nimble
+  - Quick
 
 EXTERNAL SOURCES:
   KMKeys:
@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   KMKeys: 28714a9f48fe6f672009edeca2483d09f9544fae
-  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
+  Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
-PODFILE CHECKSUM: 1f96f45eace83cebb78ebb2250f8b67abcc1640f
+PODFILE CHECKSUM: d9c585e62c1801d29ea3b31f0f19962edb084358
 
 COCOAPODS: 1.2.1

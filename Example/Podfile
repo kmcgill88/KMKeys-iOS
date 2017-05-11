@@ -6,8 +6,9 @@ target 'KMKeys_Example' do
 
   target 'KMKeys_Tests' do
     inherit! :search_paths
+    pod 'KMKeys', :path => '../'
 
-    pod 'Quick', '~> 1.x'
-    pod 'Nimble', '~> 6.x'
+    pod 'Quick'
+    pod 'Nimble'
   end
 end
