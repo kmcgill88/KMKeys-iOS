@@ -171,6 +171,14 @@ public class KMKeyBarButtonItem: UIBarButtonItem {
             break
         }
     }
+    
+    public class func done() -> KMKeyBarButtonItem {
+        return self.init(barButtonSystemItem: .done, target: self, action: #selector(KMKeys.done))
+    }
+    
+    public class func cancel() -> KMKeyBarButtonItem {
+        return self.init(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
+    }
 
     public class func flexibleSpace() -> KMKeyBarButtonItem {
         return self.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)

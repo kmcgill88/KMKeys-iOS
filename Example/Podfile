@@ -1,3 +1,4 @@
+platform :ios, '10.0'
 use_frameworks!
 
 target 'KMKeys_Example' do
@@ -7,6 +8,6 @@ target 'KMKeys_Example' do
     inherit! :search_paths
 
     pod 'Quick', '~> 1.x'
-    pod 'Nimble', '~> 5.x'
+    pod 'Nimble', '~> 6.x'
   end
 end

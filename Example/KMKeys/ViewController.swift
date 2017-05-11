@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         KMKeys.show() { (text:String?) in
             self.label.text = text
         }
-
     }
     
     @IBAction func pressedCusomtized(_ sender: Any) {
@@ -51,6 +50,8 @@ class ViewController: UIViewController {
         let flexibleSpace = KMKeyBarButtonItem.flexibleSpace() //<-- Shortcut helper
         let cancelBarButton = KMKeyBarButtonItem(title: "Never Mind", style: .plain, action: .cancel, kmKeys: keys)
         let doneBarButton = KMKeyBarButtonItem(title: "Fire!!!", style: .done, action: .done, kmKeys: keys)
+        // let cancelBarButton = KMKeyBarButtonItem.cancel() //<-- Shortcut helper, if custom name not needed
+        // let doneBarButton = KMKeyBarButtonItem.done() //<-- Shortcut helper, if custom name not needed
         
         // KMKeyBarButtonItemType.textInput
         // When you want a toolbar button's title to append to the textField
