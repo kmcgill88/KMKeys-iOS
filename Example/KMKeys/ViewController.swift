@@ -34,8 +34,8 @@ class ViewController: UIViewController {
         //
         keys.textField.textAlignment = .center
         keys.textField.placeholder = "Placeholder Text Here"
-//        keys.textField.font = UIFont(name: "", size: CGFloat.pi)
-//        keys.textField.placeholderColor = UIColor.init(white: 255/255, alpha: 0.75)
+        keys.textField.font = UIFont(name: "American Typewriter", size: 16.0)!
+        keys.textField.placeholderColor = UIColor.init(white: 255/255, alpha: 0.75)
         keys.textField.backgroundColor = .brown
         keys.textField.textColor = .white
         keys.textField.tintColor = .white
