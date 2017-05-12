@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         //
         keys.textField.textAlignment = .center
         keys.textField.placeholder = "Placeholder Text Here"
+        keys.textField.font = UIFont(name: "American Typewriter", size: 16.0)!
+        keys.textField.placeholderColor = UIColor.init(white: 255/255, alpha: 0.75)
         keys.textField.backgroundColor = .brown
         keys.textField.textColor = .white
         keys.textField.tintColor = .white
@@ -74,6 +76,7 @@ class ViewController: UIViewController {
         let fixedSpace = KMKeyBarButtonItem.fixedSpace() //<-- Shortcut helper, by default size is 2% of window width or 5 if window is nil
         keys.setToolbarItems(items: [fixedSpace, cancelBarButton, flexibleSpace, plusButton, commaButton, minusButton, actionBarButton, flexibleSpace, doneBarButton, fixedSpace])
         keys.setToolbarItemsTintColor(color: .white)
+        keys.setToolbarItemsFont(font: UIFont(name: "American Typewriter", size: 16.0)!)
         
         keys.show() { (text:String?) in
             self.label.text = text

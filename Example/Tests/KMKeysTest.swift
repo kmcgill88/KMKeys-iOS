@@ -3,7 +3,7 @@
 import Quick
 import Nimble
 
-import KMKeys
+@testable import KMKeys
 
 class KMKeysTest: QuickSpec {
     

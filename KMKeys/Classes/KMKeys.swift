@@ -10,7 +10,7 @@ import UIKit
 
 open class KMKeys: UIView {
     
-    open let textField:UITextField = UITextField()
+    open let textField:KMTextField = KMTextField()
     open let toolbar:UIToolbar = UIToolbar()
     open var animationSpeed = 0.15
     open override var frame: CGRect {
@@ -95,6 +95,12 @@ open class KMKeys: UIView {
         }
     }
     
+    public func setToolbarItemsFont(font: UIFont) {
+        for item in self.toolbar.items ?? [] {
+            item.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+        }
+    }
+    
     private func setup() {
         let fixedSpace = KMKeyBarButtonItem.fixedSpace()
         self.toolbar.items = [fixedSpace, cancelBarButton, flexibleSpace, doneBarButton, fixedSpace]
@@ -131,79 +137,5 @@ open class KMKeys: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-}
-
-public enum KMKeyBarButtonItemType {
-    case action, cancel, done, flexibleSpace, textInput
-}
-
-public class KMKeyBarButtonItem: UIBarButtonItem {
-    
-    public typealias ActionHandler = (_ kmKeys:KMKeys?) -> Void
-    private var actionHandler: ActionHandler?
-
-    private var kmKeys:KMKeys?
-    
-    public convenience init(title: String?, style: UIBarButtonItemStyle, action: KMKeyBarButtonItemType, kmKeys: KMKeys, actionHandler:ActionHandler? = nil) {
-        if action == .flexibleSpace {
-            self.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        } else {
-            self.init(title: title, style: style, target: nil, action: nil)
-        }
-        
-        self.kmKeys = kmKeys
-        self.target = kmKeys
-        
-        switch action {
-        case .done:
-            self.action = #selector(kmKeys.done)
-        case .cancel:
-            self.action = #selector(kmKeys.cancel)
-        case .textInput:
-            self.target = self
-            self.action = #selector(KMKeyBarButtonItem.barButtonItemTextInput(barButtonItem:))
-        case .action:
-            self.actionHandler = actionHandler
-            self.target = self
-            self.action = #selector(KMKeyBarButtonItem.barButtonItemAction(barButtonItem:))
-        default:
-            break
-        }
-    }
-    
-    public class func done() -> KMKeyBarButtonItem {
-        return self.init(barButtonSystemItem: .done, target: self, action: #selector(KMKeys.done))
-    }
-    
-    public class func cancel() -> KMKeyBarButtonItem {
-        return self.init(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
-    }
-
-    public class func flexibleSpace() -> KMKeyBarButtonItem {
-        return self.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    }
-    
-    public class func fixedSpace() -> KMKeyBarButtonItem {
-        let fixedSpaceBarButtonItem = KMKeyBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        
-        var fixedSize:CGFloat = 5.0
-        if let goodWindow = UIApplication.shared.keyWindow {
-            fixedSize = goodWindow.bounds.size.width * 0.02
-        }
-        
-        fixedSpaceBarButtonItem.width = fixedSize
-        
-        return fixedSpaceBarButtonItem
-    }
-    
-    @objc private func barButtonItemTextInput(barButtonItem: KMKeyBarButtonItem) {
-        if let textFieldText = kmKeys?.textField.text, let barButtonItemTitle = barButtonItem.title {
-            kmKeys?.textField.text = textFieldText + barButtonItemTitle
-        }
-    }
-    
-    @objc private func barButtonItemAction(barButtonItem: KMKeyBarButtonItem) {
-        actionHandler?(self.kmKeys)
     }
 }
