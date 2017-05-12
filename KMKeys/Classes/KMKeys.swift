@@ -95,6 +95,12 @@ open class KMKeys: UIView {
         }
     }
     
+    public func setToolbarItemsFont(font: UIFont) {
+        for item in self.toolbar.items ?? [] {
+            item.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+        }
+    }
+    
     private func setup() {
         let fixedSpace = KMKeyBarButtonItem.fixedSpace()
         self.toolbar.items = [fixedSpace, cancelBarButton, flexibleSpace, doneBarButton, fixedSpace]
