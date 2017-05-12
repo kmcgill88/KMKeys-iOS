@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KMKeys'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'KMKeys provides a drop-in floating text field and toolbar.'
 
   s.description      = <<-DESC
@@ -13,7 +13,6 @@ KMKeys provides a drop-in floating text field and toolbar. A default configurati
                        DESC
 
   s.homepage         = 'https://github.com/kmcgill88/KMKeys-iOS'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kevin McGill' => 'kevin@mcgilldevtech.com' }
   s.source           = { :git => 'https://github.com/kmcgill88/KMKeys-iOS.git', :tag => s.version.to_s }
