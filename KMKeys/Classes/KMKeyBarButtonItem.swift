@@ -47,11 +47,11 @@ open class KMKeyBarButtonItem: UIBarButtonItem {
     }
     
     public class func done() -> KMKeyBarButtonItem {
-        return self.init(barButtonSystemItem: .done, target: self, action: #selector(KMKeys.done))
+        return self.init(barButtonSystemItem: .done, target: nil, action: #selector(KMKeys.done))
     }
     
     public class func cancel() -> KMKeyBarButtonItem {
-        return self.init(barButtonSystemItem: .cancel, target: self, action: #selector(KMKeys.cancel))
+        return self.init(barButtonSystemItem: .cancel, target: nil, action: #selector(KMKeys.cancel))
     }
     
     public class func flexibleSpace() -> KMKeyBarButtonItem {
