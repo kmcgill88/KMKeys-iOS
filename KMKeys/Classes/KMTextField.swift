@@ -22,15 +22,15 @@ open class KMTextField: UITextField {
         }
     }
     
-    private func getPlaceholderAttributes() -> [String:Any] {
-        var attributes:[String : Any] = [:]
+    private func getPlaceholderAttributes() -> [NSAttributedStringKey:Any] {
+        var attributes:[NSAttributedStringKey : Any] = [:]
         
         if let color = self.placeholderColor {
-            attributes[NSForegroundColorAttributeName] = color
+            attributes[NSAttributedStringKey.foregroundColor] = color
         }
         
         if let validFont = self.font {
-            attributes[NSFontAttributeName] = validFont
+            attributes[NSAttributedStringKey.font] = validFont
         }
         return attributes
     }

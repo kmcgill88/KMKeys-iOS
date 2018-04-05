@@ -55,12 +55,12 @@ open class KMKeys: UIView {
         setup()
     }
     
-    public func done() {
+    @objc public func done() {
         toggle()
         completionHandler(textField.text)
     }
     
-    public func cancel() {
+    @objc public func cancel() {
         toggle()
     }
     
@@ -97,7 +97,7 @@ open class KMKeys: UIView {
     
     public func setToolbarItemsFont(font: UIFont) {
         for item in self.toolbar.items ?? [] {
-            item.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+            item.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
         }
     }
     
