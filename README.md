@@ -79,8 +79,8 @@ keys.show() { (text:String?) in
 ```
 
 ## Requirements
-- Swift 3+
-- Xcode 8+
+- Swift 4+
+- Xcode 9+
 
 ## Installation
 

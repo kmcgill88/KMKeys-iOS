@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KMKeys'
-  s.version          = '0.2.1'
+  s.version          = '1.0.0'
   s.summary          = 'KMKeys provides a drop-in floating text field and toolbar.'
 
   s.description      = <<-DESC
